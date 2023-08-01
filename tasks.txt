@@ -1,0 +1,7 @@
+//TODO: 1) Client A connects
+//TODO: 3) Client B connects
+//TODO: 4) Connected clients get listet on both sides in the UI
+//TODO: 5) Each side can click the others ID to call it
+//TODO: 6)
+//TODO: 7)
+//TODO: 8)
