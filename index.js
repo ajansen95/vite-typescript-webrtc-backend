@@ -1,12 +1,25 @@
+import express from "express";
 import { Server } from "socket.io";
+import { createServer } from "https";
+import { readFileSync } from "fs";
+import cors from "cors";
+
+const app = express()
+app.use(cors())
+
+const httpsServer = createServer({
+    key: readFileSync("C://Users/Alexander/Certificates/ssl/192.168.178.25.key"),
+    cert: readFileSync("C://Users/Alexander/Certificates/ssl/192.168.178.25.crt")
+}, app)
 
 
-const io = new Server(3001,{
+const io = new Server(httpsServer,{
     cors: {
-        origin: "http://localhost:5173"
+        origin: "*"
     }
 })
 
+httpsServer.listen(3001)
 
 io.on('connection', (socket) => {
     console.log(socket.id + " connected")
