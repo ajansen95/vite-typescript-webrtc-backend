@@ -13,7 +13,8 @@ const io = new Server(httpsServer,{
     }
 })
 
-httpsServer.listen(3001)
+const port = process.env.PORT || 3001
+httpsServer.listen(port)
 
 io.on('connection', (socket) => {
     console.log(socket.id + " connected")
